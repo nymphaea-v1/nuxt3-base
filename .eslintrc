@@ -1,0 +1,65 @@
+{
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": ["tsconfig.json"],
+    "extraFileExtensions": ["vue"]
+  },
+  "env": {
+    "vue/setup-compiler-macros": true
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:vue/vue3-recommended",
+    "plugin:nuxt/recommended"
+  ],
+  "rules": {
+    "max-len": ["warn", {
+      "code": 120,
+      "comments": 120
+    }],
+    "vue/first-attribute-linebreak": ["error", {
+      "singleline": "beside",
+      "multiline": "below"
+    }]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.mts", "*.cts", "*.tsx", "*.vue"],
+      "rules": {
+        // https://typescript-eslint.io/docs/linting/troubleshooting/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+        "no-undef": "off",
+
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "args": "all", "argsIgnorePattern": "^_" }]
+      }
+    },
+    {
+      "files": ["*.vue"],
+      "rules": {  
+        // https://stackoverflow.com/questions/70803374/vue-linting-errors-for-defineemits-function
+        "func-call-spacing": "off"
+      }
+    },
+    {
+      "files": [
+        "**/pages/**/*.{js,ts,vue}",
+        "**/layouts/**/*.{js,ts,vue}",
+        "**/app.{js,ts,vue}",
+        "**/error.{js,ts,vue}"
+      ],
+      "rules": {
+        // Turn this rule off to use Nuxt file system router
+        "vue/multi-word-component-names": "off",
+
+        "vue/no-multiple-template-root": "error"
+      }
+    },
+    {
+      "files": "composables/*.ts",
+      "rules": { "@typescript-eslint/explicit-function-return-type": "off" }
+    }
+  ]
+}
