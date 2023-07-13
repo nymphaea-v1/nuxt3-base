@@ -7,9 +7,6 @@
     "project": ["tsconfig.json"],
     "extraFileExtensions": ["vue"]
   },
-  "env": {
-    "vue/setup-compiler-macros": true
-  },
   "extends": [
     "standard-with-typescript",
     "plugin:vue/vue3-recommended",
