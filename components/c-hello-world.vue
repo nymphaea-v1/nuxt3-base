@@ -1,16 +1,12 @@
 <template>
-  <div>
-    <input
-      :value="modelValue"
-      type="text"
-      @input="updateModelValue"
-    >
-
-    <p>
+  <div class="container">
+    <p class="counter">
       counter: {{ counter }}
     </p>
-
-    <button @click="increaseCounter">
+    <button
+      class="button"
+      @click="increaseCounter"
+    >
       Click
     </button>
   </div>
@@ -25,18 +21,41 @@ withDefaults(defineProps<Props>(), {
   modelValue: 'Hello World!'
 })
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
-}>()
-
 const counter = ref(0)
 const increaseCounter = () => counter.value++
-
-const updateModelValue = (event: Event) => {
-  emit('update:modelValue', (event.target as HTMLInputElement).value)
-}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.container {
+  @extend %container;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
 
+.counter {
+  color: $notify;
+}
+
+.button {
+  @extend %button-reset;
+
+  width: 200px;
+  padding: 8px;
+  border-radius: $border-radius;
+
+  font-weight: 600;
+  text-transform: uppercase;
+
+  background-color: $primary;
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    filter: brightness(90%);
+  }
+}
 </style>

@@ -12,5 +12,16 @@ export default defineNuxtConfig({
       // https://github.com/vuejs/vue-loader/issues/808, https://github.com/nuxt/nuxt/issues/15048
       bodyAttrs: { id: 'override' }
     }
+  },
+  css: ['assets/styles/index.scss'],
+  ssr: true,
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "~/assets/styles/shared.scss";'
+        }
+      }
+    }
   }
 })

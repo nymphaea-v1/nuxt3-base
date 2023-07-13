@@ -1,0 +1,18 @@
+@import "fonts";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: $text;
+  font: 16px Lato, sans-serif;
+}

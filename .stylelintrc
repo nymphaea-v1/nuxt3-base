@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-rational-order",
+    "stylelint-config-html"
+  ],
+  "overrides": [{
+    "files": ["*.vue", "**/*.vue"],
+    "rules": {
+      "selector-pseudo-class-no-unknown": [true,
+        { "ignorePseudoClasses": ["deep", "global", "slotted"] }
+      ]
+    }
+  }],
+  "rules": {
+    "color-hex-length": "long",
+    "declaration-empty-line-before": null,
+    "plugin/rational-order": [true, {
+      "border-in-box-model": true,
+      "empty-line-between-groups": true,
+      "no-empty-lines-between-properties": true
+    }]
+  }
+}

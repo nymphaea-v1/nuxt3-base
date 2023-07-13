@@ -15,7 +15,11 @@
     "eslint-config-standard-with-typescript": "^34.0.1",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.11.0",
-    "nuxt": "^3.4.1"
+    "nuxt": "^3.4.1",
+    "sass": "^1.62.0",
+    "stylelint": "^14.2.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-rational-order": "github:zumm/stylelint-config-rational-order",
+    "stylelint-config-standard-scss": "^4.0.0"
   }
 }
- 
